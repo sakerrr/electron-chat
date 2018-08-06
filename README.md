@@ -16,7 +16,7 @@ npm i
 Replace chatkit credentials in  with your chatkit instance credentials. Find them in chatkit dashboard.
 
 ```
-./src/components/chatScreen.js
+// ./src/components/chatScreen.js
 
 const chatManager = new Chatkit.ChatManager({
             instanceLocator: 'YOUR INSTANCE LOCATOR',
@@ -28,7 +28,7 @@ const chatManager = new Chatkit.ChatManager({
 ```
 
 ```
-./server.js
+// ./server.js
 
 const chatkit = new Chatkit.default({
   instanceLocator: 'YOUR INSTANCE LOCATOR',
@@ -43,7 +43,7 @@ We will use this room as a default #general room.
 
 
 ```
-./src/components/chatScreen.js
+// ./src/components/chatScreen.js
 
 roomId: 13291423, // default general room
 
