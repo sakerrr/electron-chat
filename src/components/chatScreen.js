@@ -76,7 +76,7 @@ class ChatScreen extends Component {
             },
             whosOnlineListContainer: {
                 width: '30%',
-                max-width: '300px',
+                maxWidth: '300px',
                 flex: 'none',
                 padding: 20,
                 backgroundColor: '#2c303b',

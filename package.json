@@ -19,10 +19,10 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"node ./server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "electron": "electron .",
-    "dev": "nf start -p 3003"
+    "dev": "concurrently \"node ./server.js\" \"nf start -p 3003\""
   }
 }
