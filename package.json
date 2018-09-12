@@ -1,10 +1,10 @@
 {
   "main": "src/electron-starter.js",
   "devDependencies": {
-    "electron": "^2.0.1",
+    "concurrently": "^3.5.1",
+    "electron": "^2.0.9",
     "foreman": "^2.0.0",
-    "react-scripts": "^1.0.14",
-    "concurrently": "^3.5.1"
+    "react-scripts": "^1.0.14"
   },
   "dependencies": {
     "@pusher/chatkit": "^0.7.17",
@@ -13,16 +13,16 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "pusher-chatkit-server": "^0.12.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.5.0",
     "react-desktop": "^0.3.7",
+    "react-dom": "^16.5.0",
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"node ./server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "electron": "electron .",
-    "dev": "nf start -p 3003"
+    "dev": "concurrently \"node ./server.js\" \"nf start -p 3003\""
   }
 }

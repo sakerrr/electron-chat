@@ -40,7 +40,7 @@ class ChatScreen extends Component {
         chatManager.connect().then(currentUser => {
             this.setState({currentUser})
             return currentUser.subscribeToRoom({
-                roomId: 13291423,
+                roomId: 13291423, // default general room
                 messagesLimit: 100,
                 hooks: {
                     onNewMessage: message => {
@@ -65,28 +65,29 @@ class ChatScreen extends Component {
     }
     render () {
         const styles = {
-                container: {
+            container: {
                 height: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
-                },
-                chatContainer: {
+            },
+            chatContainer: {
                 display: 'flex',
                 flex: 1,
-                },
-                whosOnlineListContainer: {
-                width: '300px',
+            },
+            whosOnlineListContainer: {
+                width: '30%',
+                maxWidth: '300px',
                 flex: 'none',
                 padding: 20,
                 backgroundColor: '#2c303b',
                 color: 'white',
-                },
-                chatListContainer: {
+            },
+            chatListContainer: {
                 padding: 20,
                 width: '85%',
                 display: 'flex',
                 flexDirection: 'column',
-                },
+            },
             }
         
             return (

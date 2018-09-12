@@ -1,6 +1,7 @@
 # electron-react-pusher-chat
 
 Simple Electron chat app
+### ! Still under development
 
 ### Prerequisites
 
