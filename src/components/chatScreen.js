@@ -27,11 +27,13 @@ class ChatScreen extends Component {
             text,
             roomId: this.state.currentRoom.id
         })
+        console.log('message');
     }
     componentDidMount () {
         const chatManager = new Chatkit.ChatManager({
             instanceLocator: 'v1:us1:20fceb5f-367b-4a71-a1d6-189eba10caf5',
             userId: this.props.currentUsername,
+            //TODO: remove testing token provider
             tokenProvider: new Chatkit.TokenProvider({
                 url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/20fceb5f-367b-4a71-a1d6-189eba10caf5/token'
             }),
@@ -101,7 +103,7 @@ class ChatScreen extends Component {
                     </aside>
                     <section style={styles.chatListContainer}>
                     <MessagesList messages={this.state.messages} style={styles.chatList}/>     
-                    {/* <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} /> */}
+                    <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
                     <SendMessageForm 
                         onSubmit={this.sendMessage}
                         onChange={this.sendTypingEvent}
