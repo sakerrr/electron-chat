@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "version": "0.1.0",
+  "name": "react-pusher-chat",
+  "version": "0.2.0",
   "private": true,
   "main": "src/electron-starter.js",
   "devDependencies": {
