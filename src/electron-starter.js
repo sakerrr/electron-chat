@@ -18,6 +18,7 @@ function createWindow() {
       slashes: true
     })
   mainWindow.loadURL(startUrl)
+  mainWindow.setMenu(null)
 
   mainWindow.on('closed', function() {
     mainWindow = null
