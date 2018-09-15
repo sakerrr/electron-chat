@@ -1,6 +1,7 @@
 import React, {
     Component
 } from 'react'
+import Input from '@material-ui/core/Input';
 
 class UsernameForm extends Component {
     constructor(props) {
@@ -33,10 +34,10 @@ class UsernameForm extends Component {
                 </div>
                 <div className="item ">
                     <form onSubmit={this.onSubmit}>
-                        <input type="text" placeholder="Enter nickname" onChange={this.onChange}/>
-                        <input type="submit" />
+                        <Input type="text" placeholder="Enter nickname" onChange={this.onChange}/>
+                        <Input type="submit" />
                     </form>
-                </div>
+                    </div>
                 
             </div>
         </div>
