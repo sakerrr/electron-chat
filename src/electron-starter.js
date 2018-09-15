@@ -1,40 +1,40 @@
-const electron = require('electron')
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
+const electron = require('electron');
 
-const path = require('path')
-const url = require('url')
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
 
-let mainWindow
+const path = require('path');
+const url = require('url');
+
+let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 800, height: 600 })
+  mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
-  const startUrl =
-    process.env.ELECTRON_START_URL ||
-    url.format({
+  const startUrl = process.env.ELECTRON_START_URL
+    || url.format({
       pathname: path.join(__dirname, '/../build/index.html'),
       protocol: 'file:',
-      slashes: true
-    })
-  mainWindow.loadURL(startUrl)
-  mainWindow.setMenu(null)
+      slashes: true,
+    });
+  mainWindow.loadURL(startUrl);
+  mainWindow.setMenu(null);
 
-  mainWindow.on('closed', function() {
-    mainWindow = null
-  })
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 }
 
-app.on('ready', createWindow)
+app.on('ready', createWindow);
 
-app.on('window-all-closed', function() {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
-})
+});
 
-app.on('activate', function() {
+app.on('activate', () => {
   if (mainWindow === null) {
-    createWindow()
+    createWindow();
   }
-})
+});
