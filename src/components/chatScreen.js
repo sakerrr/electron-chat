@@ -51,10 +51,15 @@ class ChatScreen extends Component {
                         })
                     },
                     onUserStartedTyping: user => {
-                        usersWhoAreTyping: [...this.state.usersWhoAreTyping,user.name]
+                        this.setState({
+                            usersWhoAreTyping: [...this.state.usersWhoAreTyping, user.name]
+                        })
+                        console.log(this.state.usersWhoAreTyping);
                     },
                     onUserStoppedTyping: user => {
-                        usersWhoAreTyping: this.state.usersWhoAreTyping.filter(username => username != user.name)
+                        this.setState({
+                            usersWhoAreTyping: this.state.usersWhoAreTyping.filter(username => username !== user.name)
+                        })
                     },
                     onUserCameOnline: () => this.forceUpdate(),
                     onUserWentOffline: () => this.forceUpdate(),
@@ -77,7 +82,7 @@ class ChatScreen extends Component {
                 flex: 1,
             },
             whosOnlineListContainer: {
-                width: '30%',
+                width: '25%',
                 maxWidth: '300px',
                 flex: 'none',
                 padding: 20,

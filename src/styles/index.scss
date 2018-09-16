@@ -1,5 +1,6 @@
-$navy: #001e38;
-$green: #15b78f;
+@import 'variables';
+@import 'animations';
+@import 'messages';
 
 * {
     margin: 0;
@@ -34,17 +35,20 @@ $green: #15b78f;
 // }
 
 h1 {
-
   &:after {
     content: '👋';
     display: inline-block;
     transform: rotate(-20deg);
     animation: wave .75s infinite linear alternate;
   }
+  text-align: center;
 }
 
-@keyframes wave {
-  100% {
-    transform: rotate(20deg);
-  }
+.typingIndicator{
+  margin-top:10px;
+  margin-bottom:10px;
+
+  font-size: 11px;
+  opacity: 0.8;
+  color: $lightBrown;
 }
