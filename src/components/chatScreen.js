@@ -5,8 +5,6 @@ import SendMessageForm from './sendMessageForm'
 import TypingIndicator from './typingIndicator'
 import WhosOnlineList from './whoIsOnlineList'
 
-require('dotenv').config()
-
 class ChatScreen extends Component {
     constructor(props){
         super(props)
