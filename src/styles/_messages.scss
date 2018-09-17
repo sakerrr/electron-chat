@@ -1,0 +1,29 @@
+.messages{
+    .message{
+        .user{
+           display: flex;
+           align-items: flex-start;
+            .userName{
+                .timestamp{
+                    font-size:11px;
+                    padding-top: 3px;
+                    padding-left: 5px;
+                    color: $lightBrown;
+                    font-weight: normal;
+                }
+            }
+            .userAvatar{
+                height: 25px;
+                width: 25px;
+                margin-right: 5px;
+                //TODO: real avatar 
+                background-image: url('../img/avatar.svg');
+            }
+            
+        }
+
+        .messageText{
+            margin-left: 30px;
+        }
+    }
+}
