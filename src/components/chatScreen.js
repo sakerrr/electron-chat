@@ -5,6 +5,8 @@ import SendMessageForm from './sendMessageForm'
 import TypingIndicator from './typingIndicator'
 import WhosOnlineList from './whoIsOnlineList'
 
+require('dotenv').config()
+
 class ChatScreen extends Component {
     constructor(props){
         super(props)
@@ -31,18 +33,18 @@ class ChatScreen extends Component {
     }
     componentDidMount () {
         const chatManager = new Chatkit.ChatManager({
-            instanceLocator: 'v1:us1:20fceb5f-367b-4a71-a1d6-189eba10caf5',
+            instanceLocator: process.env.REACT_APP_INSTANCE_LOCATOR,
             userId: this.props.currentUsername,
             //TODO: remove testing token provider
             tokenProvider: new Chatkit.TokenProvider({
-                url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/20fceb5f-367b-4a71-a1d6-189eba10caf5/token'
+                url: process.env.REACT_APP_TOKEN_PROVIDER_URL
             }),
         })
 
         chatManager.connect().then(currentUser => {
             this.setState({currentUser})
             return currentUser.subscribeToRoom({
-                roomId: 13291423, // default general room
+                roomId: Number(process.env.REACT_APP_DEFAULT_ROOM_ID), // default general room
                 messagesLimit: 100,
                 hooks: {
                     onNewMessage: message => {
