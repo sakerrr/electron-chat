@@ -31,18 +31,18 @@ class ChatScreen extends Component {
     }
     componentDidMount () {
         const chatManager = new Chatkit.ChatManager({
-            instanceLocator: process.env.REACT_APP_INSTANCE_LOCATOR,
+            instanceLocator: 'v1:us1:20fceb5f-367b-4a71-a1d6-189eba10caf5',
             userId: this.props.currentUsername,
             //TODO: remove testing token provider
             tokenProvider: new Chatkit.TokenProvider({
-                url: process.env.REACT_APP_TOKEN_PROVIDER_URL
+                url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/20fceb5f-367b-4a71-a1d6-189eba10caf5/token'
             }),
         })
 
         chatManager.connect().then(currentUser => {
             this.setState({currentUser})
             return currentUser.subscribeToRoom({
-                roomId: Number(process.env.REACT_APP_DEFAULT_ROOM_ID), // default general room
+                roomId: 13291423, // default general room
                 messagesLimit: 100,
                 hooks: {
                     onNewMessage: message => {
