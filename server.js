@@ -1,5 +1,4 @@
 // ./server.js
-require('dotenv').load();
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -7,8 +6,9 @@ const cors = require('cors')
 const Chatkit = require('@pusher/chatkit-server')
 
 const chatkit = new Chatkit.default({
-  instanceLocator: process.env.REACT_APP_INSTANCE_LOCATOR,
-  key: process.env.REACT_APP_KEY,
+  instanceLocator: 'v1:us1:20fceb5f-367b-4a71-a1d6-189eba10caf5',
+  key:
+    '20f48801-7ec8-45e6-8bd0-5b82d98974cc:8rFOASlzzybLTgGphk1CeUddQEg6761EyViM9u7WK74='
 })
 const app = express()
 

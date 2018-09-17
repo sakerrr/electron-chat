@@ -13,28 +13,40 @@ Visit [Pusher Chatkit](https://pusher.com/chatkit), register and create your own
 ```
 npm i
 ```
-Create .env file from .env.example
 
-Replace values from Pusher Chatkit Dashboard
+Replace chatkit credentials in  with your chatkit instance credentials. Find them in chatkit dashboard.
 
 ```
-// .env
+// ./src/components/chatScreen.js
 
-REACT_APP_INSTANCE_LOCATOR='YOUR_PUSHER_CHATKIT_INSTANCE_LOCATOR'
-REACT_APP_KEY='YOUR_PUSHER_CHATKIT_KEY'
-REACT_APP_TOKEN_PROVIDER_URL='YOUR_PUSHER_CHATKIT_TEST_TOKEN_PROVIDER'
+const chatManager = new Chatkit.ChatManager({
+            instanceLocator: 'YOUR INSTANCE LOCATOR',
+            userId: this.props.currentUsername,
+            tokenProvider: new Chatkit.TokenProvider({
+                url: 'YOUR TEST TOKEN PROVIDER URL'
+            }),
+        })
+```
 
+```
+// ./server.js
+
+const chatkit = new Chatkit.default({
+  instanceLocator: 'YOUR INSTANCE LOCATOR',
+  key:
+    'YOUR INSTANCE KEY'
+})
 ```
 
 Scroll down in Chatkit dashboard to find Instance Inspector, 
-then create a room, copy it's ID.
+then create a room, copy it's ID and replace in the code on line 43.
 We will use this room as a default #general room.
 
 
 ```
-// .env
+// ./src/components/chatScreen.js
 
-REACT_APP_DEFAULT_ROOM_ID= 999, // default general room
+roomId: 13291423, // default general room
 
 ```
 
